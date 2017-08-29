@@ -24,12 +24,12 @@ app.use((req, res, next) => {
 });
 
 // middlware for maintenance
-app.use((req, res, next) => {
-  res.render('maintenance.hbs', {
-    pageTitle: 'Server out for a toke.',
-    pageMessage: 'Back real soon, dude.'
-  });
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs', {
+//     pageTitle: 'Server out for a toke.',
+//     pageMessage: 'Back real soon, dude.'
+//   });
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -72,6 +72,14 @@ app.get('/bad', (req, res) => {
     }
   })
 })
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects, yo',
+    pageMessage: "Got a little project goin with Mister White, yo."
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}.`);
